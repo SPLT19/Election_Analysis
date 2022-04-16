@@ -16,6 +16,11 @@ candidate_options = []
 # 3.1 Declare the empty dictionary for counting the votes on each candidate.
 candidate_votes = {}
 
+#4.3 Winning Candidate and Winning Count Tracker
+winning_candidate = ""
+winning_count = 0
+winning_percentage = 0
+
 #1.1 Open the election results and read the file.
 with open(file_to_load) as election_data:
     file_reader = csv.reader(election_data)
@@ -50,7 +55,7 @@ with open(file_to_load) as election_data:
             
 #2.2 Print the candidate list.
 #print(candidate_options)
-
+           
 #3.3.2 Add a vote count for each candidate.
             #3.3.1 candidate_votes[candidate_name] += 1
         candidate_votes[candidate_name] += 1
@@ -65,15 +70,33 @@ for candidate_name in candidate_votes:
     # 3. Calculate the percentage of votes.
     vote_percentage = float(votes) / float(total_votes) * 100
     # 4. Print the candidate name and percentage of votes.
-    print(f"{candidate_name}: received {vote_percentage:.2f}% of the vote.")
+    #4 Get the total votes for each candidate.
+    #print(f"{candidate_name}: received {vote_percentage:.2f}% of the vote.")
+    #print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
+    # To do: print out each candidate's name, vote count, and percentage of
+    # votes to the terminal.
+    print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
+ #4.3 Winning Candidate and Winning Count Tracker
+        # Determine winning vote count and candidate
+        # 4.3.1. Determine if the votes are greater than the winning count.
+    if (votes > winning_count) and (vote_percentage > winning_percentage):
+         # 4.3.2. If true then set winning_count = votes and winning_percent =
+         # vote_percentage.
+        winning_count = votes
+        winning_percentage = vote_percentage
+            # 4.3.3. Set the winning_candidate equal to the candidate's name.
+        winning_candidate = candidate_name
+        
+    winning_candidate_summary = (
+        f"-------------------------\n"
+        f"Winner: {winning_candidate}\n"
+        f"Winning Vote Count: {winning_count:,}\n"
+        f"Winning Percentage: {winning_percentage:.1f}%\n"
+        f"-------------------------\n")
+print(winning_candidate_summary)
 
-
-
-
-
-#4 Get the total votes for each candidate.
 #5 Get the total votes cast for the election.
-
+print("The total votes cast for the elections were a total of " + str(total_votes) + "votes") 
 
 
 #goals
@@ -81,7 +104,6 @@ for candidate_name in candidate_votes:
 #Total number of votes each candidate received
 #Percentage of votes each candidate won
 #The winner of the election based on popular vote
-
 
 # Close the file.
 #election_data.close()

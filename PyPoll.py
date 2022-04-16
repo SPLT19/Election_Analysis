@@ -1,21 +1,3 @@
-#import modules to read csv
-#import csv
-#dir(csv)
-
-#Task Goals and sub goals
-#Total number of votes cast
-
-#1 Open the data file.
-    #Full path Source from file "C:\Users\splt1\Election_Analysis\Resources\election_results.csv" 
-    #file_variable = open(filename, mode)     
-# Assign a variable for the file to load and the path.
-#file_to_load = 'Resources/election_results.csv'
-# Open the election results and read the file.
-#election_data = open(file_to_load, 'r')
-#with open(file_to_load) as election_data:
-# To do: perform analysis.
-#    print(election_data)
-
 # Add our dependencies.
 import csv
 import os
@@ -24,13 +6,24 @@ file_to_load = os.path.join("Resources", "election_results.csv")
 # Assign a variable to save the file to a path.
 file_to_save = os.path.join("analysis", "election_analysis.txt")
 
+# 1. Initialize a total vote counter.
+total_votes = 0
+
 # Open the election results and read the file.
 with open(file_to_load) as election_data:
     file_reader = csv.reader(election_data)
 
     # Read and print the header row.
     headers = next(file_reader)
-    print(headers)
+   # test walktrhouh print(headers) test
+
+ # Print each row in the CSV file.
+    for row in file_reader:
+        # 2. Add to the total vote count.
+        total_votes += 1
+
+# 3. Print the total votes.
+print(total_votes)
 
 #2 Write down the names of all the candidates.
 #3 Add a vote count for each candidate.

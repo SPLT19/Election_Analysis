@@ -33,10 +33,15 @@ with open(file_to_load) as election_data:
 # Print the candidate name from each row.
         candidate_name = row[2]
 
-# Add the candidate name to the candidate list.
-        candidate_options.append(candidate_name)
+  # 2.1 v2 If the candidate does not match any existing candidate...
+        if candidate_name not in candidate_options:
+            # Add it to the list of candidates.
+            candidate_options.append(candidate_name)       
 
-# Print the candidate list.
+# 2.1 Add the candidate name to the candidate list.
+        #candidate_options.append(candidate_name)
+
+#2.2 Print the candidate list.
 print(candidate_options)
 #3 Add a vote count for each candidate.
 #4 Get the total votes for each candidate.

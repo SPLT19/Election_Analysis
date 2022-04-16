@@ -9,7 +9,11 @@ file_to_save = os.path.join("analysis", "election_analysis.txt")
 # 1. Initialize a total vote counter.
 total_votes = 0
 
-# Open the election results and read the file.
+#2 Write down the names of all the candidates.
+#Candidate options
+candidate_options = []
+
+#1.1 Open the election results and read the file.
 with open(file_to_load) as election_data:
     file_reader = csv.reader(election_data)
 
@@ -19,18 +23,28 @@ with open(file_to_load) as election_data:
 
  # Print each row in the CSV file.
     for row in file_reader:
-        # 2. Add to the total vote count.
+        # 1.2 Add to the total vote count.
         total_votes += 1
 
-# 3. Print the total votes.
-print(total_votes)
+# 1.3 Print the total votes.
+# print(total_votes)
 
-#2 Write down the names of all the candidates.
+#2 Write down the names of all the candidates. 
+# Print the candidate name from each row.
+        candidate_name = row[2]
+
+# Add the candidate name to the candidate list.
+        candidate_options.append(candidate_name)
+
+# Print the candidate list.
+print(candidate_options)
 #3 Add a vote count for each candidate.
 #4 Get the total votes for each candidate.
 #5 Get the total votes cast for the election.
 
 
+
+#goals
 #A complete list of candidates who received votes
 #Total number of votes each candidate received
 #Percentage of votes each candidate won

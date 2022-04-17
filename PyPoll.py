@@ -61,15 +61,15 @@ with open(file_to_load) as election_data:
         candidate_votes[candidate_name] += 1
 
 
- #5 Save the results to our text file.
+# Save the results to our text file.
 with open(file_to_save, "w") as txt_file:
 
 #Print final vote count to the terminal
     election_results = (
-        f"\nElection Results\n"
-        f"------------------------------\n"
-        f"Total Votes: {total_votes:,}\n"
-        f"------------------------------\n")
+    f"\nElection Results\n"
+    f"------------------------------\n"
+    f"Total Votes: {total_votes:,}\n"
+    f"------------------------------\n")
     print(election_results, end="")
 
     #Save final vote count to text file.

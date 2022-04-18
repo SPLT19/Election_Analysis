@@ -28,7 +28,7 @@ winning_percentage = 0
 
 #Challenge 2: Track the largest county and county voter turnout.
 largest_county = ""
-county_count = 0
+county_vote_count = 0
 
 
 #1.1 Open the election results and read the file.
@@ -101,7 +101,8 @@ with open(file_to_save, "w") as txt_file:
         f"-------------------------\n"
         f"Total Votes: {total_votes:,}\n"
         f"-------------------------\n\n"
-        f"County Votes:\n")
+        f"County Votes:\n"
+        f"-.-.-.-.-.-.\n")
     print(election_results, end="")
 
     #Save final vote count to text file.
@@ -120,22 +121,29 @@ with open(file_to_save, "w") as txt_file:
         cvote_percentage = float(cvotes) / float(total_cvotes) * 100
 
          #CH 6d: Print the county results to the terminal.
-        
-        print(f"{county_name}: {cvote_percentage:.1f}% ({cvotes:,})")
+        county_results = (f"{county_name}: {cvote_percentage:.1f}% ({cvotes:,})\n")
+        print(county_results)
     
         
          #CH 6e: Save the county votes to a text file.
-        county_results = ( f"{county_name}: {cvote_percentage:.1f}% ({cvotes:,})") 
+        txt_file.write(county_results)
 
          #CH 6f: Write an if statement to determine the winning county and get its vote count.
-        
+        if (cvotes > county_vote_count):
+            county_vote_count = cvotes
+            largest_county_result = county_name
         
 
     #Challenge 7: Print the county with the largest turnout to the terminal.
-    
-
+    largest_county_result = (
+        f"-------------------------\n"
+        f"Largest County result: {largest_county_result}\n"
+        f"-------------------------\n\n"
+        f"Candidate Results\n" 
+        f"-.-.-.-.-.-.\n")
+    print (largest_county_result)
     #Challenge 8: Save the county with the largest turnout to a text file.
-
+    txt_file.write(largest_county_result)
     
 
 
@@ -143,16 +151,18 @@ with open(file_to_save, "w") as txt_file:
     # 1. Iterate through the candidate list.
     for candidate_name in candidate_votes:
         # 2. Retrieve vote count of a candidate.
-        votes = candidate_votes[candidate_name]
+        votes = candidate_votes.get(candidate_name)
         # 3. Calculate the percentage of votes.
         vote_percentage = float(votes) / float(total_votes) * 100
         # 4. Print the candidate name and percentage of votes.
         #4 Get the total votes for each candidate.
         #print(f"{candidate_name}: received {vote_percentage:.2f}% of the vote.")
-       
-        print(f"{candidate_name}: received {vote_percentage:.1f}% of the vote.")
+        candidate_results = (
+            f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n" )
         # To do: print out each candidate's name, vote count, and percentage of
         # votes to the terminal.
+        txt_file.write(candidate_results)
+        
         #print(f"{candidate_name}: {vote_percentage:.1f}% ({votes:,})\n")
     #4.3 Winning Candidate and Winning Count Tracker
             # Determine winning vote count and candidate
@@ -166,22 +176,20 @@ with open(file_to_save, "w") as txt_file:
             winning_candidate = candidate_name
             
         winning_candidate_summary = (
-            f"-------------------------\n"
+            f"\n-------------------------\n"
             f"Winner: {winning_candidate}\n"
             f"Winning Vote Count: {winning_count:,}\n"
             f"Winning Percentage: {winning_percentage:.1f}%\n"
             f"-------------------------\n")
     print(winning_candidate_summary)
 
+     # Save the winning candidate's name to the text file
+    txt_file.write(winning_candidate_summary)
+
+
     #5 Get the total votes cast for the election.
     #print("The total votes cast for the elections were a total of " + str(total_votes) + " votes.") 
 
-
-    #goals
-    #A complete list of candidates who received votes
-    #Total number of votes each candidate received
-    #Percentage of votes each candidate won
-    #The winner of the election based on popular vote
 
     # Close the file.
     #election_data.close()

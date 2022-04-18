@@ -1,6 +1,5 @@
 # Election_Analysis
 
-
 ## Project Overview
 The following analysis was performed to obtain voting counts and information regarding an election process of Colorado Board. The employee requested to complete an election audit of a recent local congressional election. 
 
@@ -16,7 +15,7 @@ Calculate percentage of votes from each county out of the total count
 Obtain county with the highest turnout
 
 ## Resources
-- CSV file and main data source: Resources\election_results.csv encoding UTF-8
+- CSV file and main data source: Resources\election_results.csv encoding UTF-8 [electionCSV](Resources\election_results.csv)
 - Software used: Python 3.9.7(base, conda), Visual Studio Code 1.66.2 
 
 ## Election-Audit Results

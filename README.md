@@ -67,3 +67,4 @@ This challenge was indeed a challenge in which was the first time trying to prog
  
 ## Challenge Summary
 In the following challenge, a script was created to perform an election audit analysis to count votes, list counties and candidates as well as determining the winner of the election and print the information not only in a terminal but also a txt file for the client.
+![AnalysisReport](Analysis_report.png)
